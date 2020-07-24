@@ -7,9 +7,24 @@
 </head>
 <body>
 <h1>My Super Fancy Spa</h1>
+<h2>My Profile</h2>
+<p th:text = "${name}"></p>
+<p th:text ="${skintype}"></p>
+<p th:text ="${manipedi}"></p>
 <div id = "clientProfile">
 </div>
 <div id = "servicesMenu">
+<!-- Add a table and iteratively (using our th:block and th:each combo) add rows for the values in appropriateFacials -->
+    <table>
+        <th:block th:each = "facial: ${appropriateFacials}">
+            <tr>
+                <td th:text = "${facial}"></td>
+            </tr>
+        </th:block>
+    </table>
+
+
+
 </div>
 </body>
 </html>
