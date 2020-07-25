@@ -42,7 +42,7 @@ public class SpaDayController {
             return true;
         }
     }
-
+    // This creates the form the user fills out on the first page
     @GetMapping(value="")
     @ResponseBody
     public String customerForm () {
@@ -66,6 +66,7 @@ public class SpaDayController {
         return html;
     }
 
+    // Takes user input from form entry and displays when the user submits
     @PostMapping(value="")
     public String spaMenu(@RequestParam String name, @RequestParam String skintype, @RequestParam String manipedi, Model model) {
 
@@ -74,17 +75,21 @@ public class SpaDayController {
         facials.add("Hydrofacial");
         facials.add("Rejuvenating");
         facials.add("Enzyme Peel");
+
+        //adds attributes taken form user form input to be used in menu.html
         model.addAttribute("name", name);
         model.addAttribute("skintype", skintype);
         model.addAttribute("manipedi", manipedi);
 
+        //stores users specific recommended treatments
         ArrayList<String> appropriateFacials = new ArrayList<String>();
         for (int i = 0; i < facials.size(); i ++) {
             if (checkSkinType(skintype,facials.get(i))) {
                 appropriateFacials.add(facials.get(i));
             }
         }
-
+        //adds attribute that can be used in menu.html to display recommendations
+        model.addAttribute("recommendedTreatments",appropriateFacials);
         return "menu";
     }
 }
