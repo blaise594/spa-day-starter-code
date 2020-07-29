@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 
 @Controller
+//@RequestMapping("menu")
 public class SpaDayController {
 
     public boolean checkSkinType(String skinType, String facialType) {
@@ -60,6 +61,7 @@ public class SpaDayController {
                 "<select name = 'manipedi'>" +
                 "<option value = 'manicure'>Manicure</option>" +
                 "<option value = 'pedicure'>Pedicure</option>" +
+                "<option value = 'both'>Both</option>" +
                 "</select><br>" +
                 "<input type = 'submit' value = 'Submit'>" +
                 "</form>";

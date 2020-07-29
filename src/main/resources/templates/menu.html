@@ -37,6 +37,13 @@
         <!--The p tag needs to be replaced with the fragment of the pedicure description from fragments.html-->
         <p th:replace = "fragments :: pedicureDescription"></p>
     </div>
+    <div th:if="${manipedi=='both'}">
+        <p th:replace = "fragments :: manicureDescription"></p>
+        <p th:replace = "fragments :: pedicureDescription"></p>
+    </div>
 </div>
 </body>
+<!--<footer>-->
+<!--    <div class="blue-square"></div>-->
+<!--</footer>-->
 </html>
